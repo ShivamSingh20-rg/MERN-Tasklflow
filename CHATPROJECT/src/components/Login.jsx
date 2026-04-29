@@ -15,7 +15,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("https://zero9-textapp.onrender.com/api/login", { email, password });
+      const res = await axios.post("https://backend-z73g.onrender.com/api/login", { email, password });
       login(res.data.user, res.data.token); 
     } catch (err) { 
       console.log(err)

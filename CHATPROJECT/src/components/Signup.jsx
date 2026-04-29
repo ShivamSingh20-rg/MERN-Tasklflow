@@ -17,7 +17,7 @@ const navigate = useNavigate();
     console.log("Signup Data:", formData);
     const { username, email, password } = formData;
    
-  axios.post(' /api/signup', {username: username,email: email,password: password})
+  axios.post(' https://zero9-textapp.onrender.com/api/signup', {username: username,email: email,password: password})
   .then((res)=> {
     console.log('succesfully registerd', res.data)
     navigate("/login");

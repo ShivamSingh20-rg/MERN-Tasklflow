@@ -23,7 +23,7 @@ function Dashboard() {
     },
   };
     axios
-      .get(`/api/get`,config)
+      .get(` https://zero9-textapp.onrender.com/api/get`,config)
       .then((result) => {
         setTodos(result.data);
       })
@@ -34,7 +34,7 @@ function Dashboard() {
     if (!input.trim()) return;
 const token = localStorage.getItem('token')
     axios
-      .post(`/api/add`, { tasks: input },{ 
+      .post(` https://zero9-textapp.onrender.com/api/add`, { tasks: input },{ 
         headers: {
           Authorization: `Bearer ${token}` 
         }
@@ -48,7 +48,7 @@ const token = localStorage.getItem('token')
 
   const handleDelete = (id) => {
     axios
-      .delete(` /api/delete/${id}`) // Ensure your backend route matches this
+      .delete(` https://zero9-textapp.onrender.com/api/delete/${id}`) // Ensure your backend route matches this
       .then(() => {
         setTodos(todos.filter((t) => t._id !== id));
       })
@@ -58,7 +58,7 @@ const token = localStorage.getItem('token')
   const handleSaveEdit = (id, newTasksText) => {
     const token = localStorage.getItem('token')
     axios
-      .put(` /api/update/${id}`, { tasks: newTasksText },{ 
+      .put(`  https://zero9-textapp.onrender.com/api/update/${id}`, { tasks: newTasksText },{ 
         headers: {
           Authorization: `Bearer ${token}` // The Authorization header
         }

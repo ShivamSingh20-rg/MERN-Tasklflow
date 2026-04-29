@@ -20,7 +20,7 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-app.post("https://zero9-textapp.onrender.com//api/add", protect,(req, res) => {
+app.post("/api/add", protect,(req, res) => {
   const tasks = req.body.tasks;
 console.log("Logged in User ID:", req.user)
   TodoSchema.create({
@@ -33,14 +33,14 @@ console.log("Logged in User ID:", req.user)
     });
 });
 
-app.delete("https://zero9-textapp.onrender.com//api/delete/:id", (req, res) => {
+app.delete("/api/delete/:id", (req, res) => {
   const { id } = req.params;
   TodoSchema.findByIdAndDelete(id).then(
     res.status(200).json({ success: true, id: id }),
   );
 });
 
-app.put("https://zero9-textapp.onrender.com//api/update/:id",protect,(req, res) => { 
+app.put(" /api/update/:id",protect,(req, res) => { 
   const { id } = req.params;
   const { tasks } = req.body;
 
@@ -58,7 +58,7 @@ app.put("https://zero9-textapp.onrender.com//api/update/:id",protect,(req, res) 
   );
 });
 
-app.post('https://zero9-textapp.onrender.com//api/signup', async (req, res) => {
+app.post(' /api/signup', async (req, res) => {
   const { email, password,username } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
@@ -69,7 +69,7 @@ app.post('https://zero9-textapp.onrender.com//api/signup', async (req, res) => {
   }
 });
 
-app.post('https://zero9-textapp.onrender.com//api/login', async (req, res) => {
+app.post(' /api/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await UserSC.findOne({ email });
   
@@ -84,7 +84,7 @@ app.post('https://zero9-textapp.onrender.com//api/login', async (req, res) => {
   }
 });
 
-app.get("https://zero9-textapp.onrender.com//api/get", protect,(req, res) => {
+app.get(" /api/get", protect,(req, res) => {
   TodoSchema.find({ userId: req.user }).then((result) => res.json(result));
 });
 

@@ -74,7 +74,6 @@ const token = localStorage.getItem('token')
   const handleCancelEdit = () => setEditingId(null);
 
   const toggleTodo = async(id)=> {
-
      try {
     // This tells the backend to flip the status in the database
     const response = await axios.put(`https://backend-z73g.onrender.com/toggle/${id}`);

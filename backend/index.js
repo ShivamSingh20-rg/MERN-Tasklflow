@@ -58,7 +58,7 @@ app.put("/api/update/:id",protect,(req, res) => {
   );
 });
 // This route handles the actual MongoDB connection
-app.put("/toggle/:id", async (req, res) => {
+app.put("/api/toggle/:id", async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id)

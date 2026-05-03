@@ -73,13 +73,12 @@ const token = localStorage.getItem('token')
   const handleStartEdit = (id) => setEditingId(id);
   const handleCancelEdit = () => setEditingId(null);
 
-  const toggleTodo = async(id)=> {
+  const toggleTodo = async (id)=> {
      try {
-    // This tells the backend to flip the status in the database
-    const response = await axios.put(`https://backend-z73g.onrender.com/toggle/${id}`);
+   
+    const response = await axios.put(`https://backend-z73g.onrender.com/api/toggle/${id}`);
 
-    // This tells React to flip the status in the UI immediately
-    setTasks(prevTasks =>
+    setTodos(prevTasks =>
       prevTasks.map(task =>
         task._id === id ? { ...task, completed: response.data.completed } : task
       )

@@ -11,9 +11,6 @@ const Todolist = ({
   onToggle
 
 }) => {
-
-
- 
     if (todos.length === 0) {
         return (
             <div className="text-center max-w-2xl m-auto py-16 backdrop-blur-2xl bg-white/5 rounded-2xl border border-white/0">

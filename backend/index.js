@@ -15,7 +15,7 @@ mongoose.connect(configs.MONGO_URL)
 const app = express();
 app.use(express.json());
 app.use(cors({
- origin: ["https://09-textapp.vercel.app",  'http://localhost:5174' ],  
+ origin: ["https://09-textapp.vercel.app",  'http://localhost:5173' ],  
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));

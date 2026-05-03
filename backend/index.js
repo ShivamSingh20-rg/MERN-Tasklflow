@@ -15,7 +15,7 @@ mongoose.connect(configs.MONGO_URL)
 const app = express();
 app.use(express.json());
 app.use(cors({
- origin: ["http://localhost:5173", /\.vercel\.app$/],  
+ origin: ["http://localhost:5173", ],  
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
@@ -58,7 +58,7 @@ app.put(" /api/update/:id",protect,(req, res) => {
   );
 });
 
-app.post(' /api/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
   const { email, password,username } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   try {

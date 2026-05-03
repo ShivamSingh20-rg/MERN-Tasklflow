@@ -7,7 +7,8 @@ const Todolist = ({
   onDelete, 
   onStartEdit, 
   onCancelEdit, 
-  onSaveEdit 
+  onSaveEdit ,
+  onToggle
 
 }) => {
 
@@ -45,7 +46,7 @@ const Todolist = ({
                     onStartEdit={onStartEdit}  
                     onCancelEdit={onCancelEdit}  
                     onSaveEdit={onSaveEdit}
-                        
+                     onToggle={onToggle}   
                     />
                 ))}
             </div>

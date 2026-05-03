@@ -73,6 +73,10 @@ const token = localStorage.getItem('token')
   const handleStartEdit = (id) => setEditingId(id);
   const handleCancelEdit = () => setEditingId(null);
 
+  const toggleTodo = ()=> {
+
+    console.log('hello')
+  }
   return (
     <div
       className="min-h-screen bg-linear-to-br from-indigo-950 via-purple-950 to-pink-950 p-3 sm:p-6 relative overflow-hidden"
@@ -95,6 +99,7 @@ const token = localStorage.getItem('token')
         onStartEdit={handleStartEdit}
         onCancelEdit={handleCancelEdit}
         onSaveEdit={handleSaveEdit}
+        onToggle={toggleTodo}
       />
     </div>
   );

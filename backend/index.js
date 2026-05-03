@@ -57,7 +57,20 @@ app.put("/api/update/:id",protect,(req, res) => {
     },
   );
 });
-
+// This route handles the actual MongoDB connection
+app.put("/toggle/:id", async (req, res) => {
+  try {
+    const task = await Task.findById(req.params.id);
+    
+    // The actual database modification
+    task.completed = !task.completed; 
+    
+    const savedTask = await task.save(); 
+    res.json(savedTask); // Send the new data back to React
+  } catch (err) {
+    res.status(500).send("Database Error");
+  }
+});
 app.post('/signup', async (req, res) => {
   const { email, password,username } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);

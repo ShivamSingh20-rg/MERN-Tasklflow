@@ -21,11 +21,12 @@ function Todoitem({
   return (
     <div className={`group w-[50vw] m-auto backdrop-blur-2xl bg-white/5 hover:bg-white/10 rounded-xl p-3 flex items-center gap-3 border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/10 ${todo.completed ? "opacity-50" : ""}`}>
        <button
-          onClick={() => onToggle(todo.id)}
-          className={`shrink w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 ${
+          onClick={() => onToggle(todo.id)    
+          }
+          className={`shrink w-6 h-6 rounded-lg flex items-center bg-white justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 ${
             todo.completed
               ? "bg-linear-to-br from-emerald-400  to-teal-500 border-emerald-400 shadow-lg shadow-emerald-400/50"
-              : "border-white/30 hover:border-violet-400 hover:bg-violet-500/20"
+              : " bg-white"
           }`}
         >
           {todo.completed && (

@@ -58,7 +58,7 @@ const token = localStorage.getItem('token')
   const handleSaveEdit = (id, newTasksText) => {
     const token = localStorage.getItem('token')
     axios
-      .put(`  https://backend-z73g.onrender.com/api/update/${id}`, { tasks: newTasksText },{ 
+      .put(`https://backend-z73g.onrender.com/api/update/${id}`, { tasks: newTasksText },{ 
         headers: {
           Authorization: `Bearer ${token}` // The Authorization header
         }
@@ -73,9 +73,21 @@ const token = localStorage.getItem('token')
   const handleStartEdit = (id) => setEditingId(id);
   const handleCancelEdit = () => setEditingId(null);
 
-  const toggleTodo = ()=> {
+  const toggleTodo = async(id)=> {
 
-    console.log('hello')
+     try {
+    // This tells the backend to flip the status in the database
+    const response = await axios.put(`https://backend-z73g.onrender.com/toggle/${id}`);
+
+    // This tells React to flip the status in the UI immediately
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task._id === id ? { ...task, completed: response.data.completed } : task
+      )
+    );
+  } catch (err) {
+    console.error("Failed to update task", err);
+  }
   }
   return (
     <div

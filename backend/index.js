@@ -40,7 +40,7 @@ app.delete("/api/delete/:id", (req, res) => {
   );
 });
 
-app.put(" /api/update/:id",protect,(req, res) => { 
+app.put("/api/update/:id",protect,(req, res) => { 
   const { id } = req.params;
   const { tasks } = req.body;
 
@@ -69,7 +69,7 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-app.post(' /api/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await UserSC.findOne({ email });
   
@@ -84,7 +84,7 @@ app.post(' /api/login', async (req, res) => {
   }
 });
 
-app.get(" /api/get", protect,(req, res) => {
+app.get("/api/get", protect,(req, res) => {
   TodoSchema.find({ userId: req.user }).then((result) => res.json(result));
 });
 

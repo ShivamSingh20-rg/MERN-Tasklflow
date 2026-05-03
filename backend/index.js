@@ -63,7 +63,7 @@ app.put("/api/toggle/:id", async (req, res) => {
     const { id } = req.params;
     console.log(id)
    
-    const task = await Task.findById(id);
+    const task = await TodoSchema.findById(id);
 
  
     if (!task) {

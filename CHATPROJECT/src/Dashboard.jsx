@@ -87,14 +87,26 @@ const token = localStorage.getItem('token')
     console.error("Failed to update task", err);
   }
   }
+
+const totalTasks = todos.length;
+const completedTasks = todos.filter(t => t.completed).length;
+const pendingTasks = totalTasks - completedTasks;
+const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0; 
   return (
     <div
       className="min-h-screen bg-linear-to-br from-indigo-950 via-purple-950 to-pink-950 p-3 sm:p-6 relative overflow-hidden"
       style={{ minHeight: "100vh" }}
     ><div className="flex justify-end">
 <Logout /></div>
-      <Header />
-      <Statsgrid />
+      <Header 
+      head={progress}
+        />
+      <Statsgrid total= {totalTasks} 
+      completed={completedTasks}
+       pending={pendingTasks}
+
+      />
+      
 
       <Input
         value={input}

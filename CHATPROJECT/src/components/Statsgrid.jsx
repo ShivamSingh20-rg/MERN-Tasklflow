@@ -1,9 +1,11 @@
 import React from "react";
 import { Zap, CheckCircle } from "lucide-react";
-function Statsgrid() {
-  let totalTodos = 4;
-  let activeTodos = 2;
-  let completedTodos = 2;
+function Statsgrid({
+    total,
+    completed,
+    pending
+}) {
+   
   return (
     <>
       <div className="flex max-w-2xl m-auto gap-7">
@@ -15,7 +17,7 @@ function Statsgrid() {
             <Zap size={16} className="text-violet-400" />
             <span className="text-violet-300 text-xs font-semibold">Total</span>
           </div>
-          <div className="text-2xl font-black text-white">{totalTodos}</div>
+          <div className="text-2xl font-black text-white">{total}</div>
         </div>
 
         <div
@@ -29,7 +31,7 @@ function Statsgrid() {
               Active
             </span>
           </div>
-          <div className="text-2xl font-black text-white">{activeTodos}</div>
+          <div className="text-2xl font-black text-white">{pending}</div>
         </div>
 
         <div
@@ -40,7 +42,7 @@ function Statsgrid() {
             <CheckCircle size={16} className="text-emerald-400" />
             <span className="text-emerald-300 text-xs font-semibold">Done</span>
           </div>
-          <div className="text-2xl font-black text-white">{completedTodos}</div>
+          <div className="text-2xl font-black text-white">{completed}</div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Sparkles, TrendingUp } from "lucide-react";
 
-function Header() {
+function Header({head}) {
   return (
     <>
       <div className="max-w-2xl m-auto p-6 mb-4 border rounded-2xl bg-white/5 backdrop-blur-2xl border-white/10 shadow-2xl">
@@ -34,7 +34,7 @@ function Header() {
         <div className="flex justify-between items-center mb-2">
           <span className="text-white/70 text-xs font-semibold">Progress</span>
           <span className="text-white font-bold text-sm">
-            {Math.round(20)}%{" "}
+            {head}%
           </span>
         </div>
 
